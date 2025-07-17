@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Python vs Java Game</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+  // Show "Java Wins!" instead
+  function showJavaWin() {
+    const winMessage = document.getElementById("winMessage");
+    winMessage.innerHTML = '<span class="emoji">☕</span>Java Wins!';
+  }
+</script>
+</head>
+<body>
+  <h1>Python 🐍 vs Java ☕</h1>
+  <div id="board" class="board"></div>
+<h2 id="winner" style="z-index: 2; position: relative;"></h2>
+  <button onclick="restartGame()">Restart</button>
+
+  <script src="script.js"></script>
+
+<!-- Animation Styles -->
+<style>
+  .your-turn {
+    font-family: monospace;
+    font-weight: bold;
+    position: fixed;
+    padding: 12px 18px;
+    font-size: 18px;
+    animation: pulse 2s infinite;
+    white-space: pre;
+  }
+
+  .python-turn {
+    bottom: 20px;
+    left: 20px;
+    color: red;
+  }
+
+  .java-turn {
+    bottom: 20px;
+    right: 20px;
+    color: green;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 0.7;
+    }
+  }
+</style>
+
+<style>
+  .turn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+  }
+
+  #restart {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #444;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  #restart:hover {
+    background-color: #222;
+  }
+
+  .your-turn {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: bold;
+    animation: pulseGlow 2s infinite ease-in-out, fadeIn 1s ease;
+    white-space: pre;
+    text-align: left;
+  }
+
+  .python-turn {
+    background-color: #eaffea;
+    color: green;
+  }
+
+  .java-turn {
+    background-color: #ffe5e5;
+    color: red;
+  }
+
+  @keyframes pulseGlow {
+    0% {
+      text-shadow: 0 0 4px #aaa;
+    }
+    50% {
+      text-shadow: 0 0 10px currentColor;
+    }
+    100% {
+      text-shadow: 0 0 4px #aaa;
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Turn Indicators */
+  .your-turn {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 12px;
+    animation: glowPulse 2s infinite, bounce 1.5s ease-in-out;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .python-turn {
+    background-color: #ccffcc;
+    color: green;
+    text-shadow: 0 0 5px lime;
+  }
+
+  .java-turn {
+    background-color: #ffcccc;
+    color: red;
+    text-shadow: 0 0 5px crimson;
+  }
+
+  /* Turn Container */
+  .turn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    margin-top: 40px;
+  }
+
+  /* Win Message */
+  .win-text {
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+    animation: popIn 1s ease, shine 3s infinite;
+    position: relative;
+  }
+
+  .win-text .emoji {
+    font-size: 42px;
+    margin-right: 10px;
+  }
+
+  /* Animations */
+  @keyframes glowPulse {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.05); opacity: 1; }
+    100% { transform: scale(1); opacity: 0.8; }
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  @keyframes popIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes shine {
+    0% { text-shadow: 0 0 5px #fff; }
+    50% { text-shadow: 0 0 20px gold, 0 0 40px orange; }
+    100% { text-shadow: 0 0 5px #fff; }
+  }
+</style>
+<!-- Restart + Turn Indicators -->
+<div class="turn-container">
+  <div class="your-turn python-turn">PYTHON Your Turn</div>
+  <div class="your-turn java-turn">JAVA Your Turn</div>
+</div>
+</body>
+</html>
